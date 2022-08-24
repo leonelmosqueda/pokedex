@@ -23,28 +23,20 @@
     <main class="container-fluid text-center mt-5">
         <form method="get" class="row justify-content-evenly">
             <div class="col-4">
-                <div class="list-group border">
+                <div class="list-group border" id="list-group">
                     <a href="#" class="list-group-item list-group-item-action disabled p-3 pokefont text-warning bg-primary">Choose a Pokémon</a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
-                    <a href="#" class="list-group-item list-group-item-action p-3 text-start capitalize"></a>
                 </div>
-                <ul class="pagination justify-content-center mt-3">
+                <ul class="pagination justify-content-center mt-3" id="pagination">
                     <li class="page-item">
-                        <a href="#" class="page-link disabled" aria-label="Previous">
+                        <a href="#" class="page-link" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"></a></li>
+                    <li class="page-item"><a class="page-link" href="#"></a></li>
+                    <li class="page-item"><a class="page-link" href="#"></a></li>
+                    <li class="page-item"><a class="page-link" href="#"></a></li>
+                    <li class="page-item"><a class="page-link" href="#"></a></li>
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -54,8 +46,8 @@
             </div>
             <div class="col-4">
                 <div class="card text-white border" style="background-color: var(--bs-red)">
-                    <img src="./img/pokeball.png" class="card-img-top img-fluid mx-auto rotate" style="width: 200px" alt="No photo" data-result="image">
-                    <p>No Photo</p>
+                    <img src="./img/pokeball.png" class="card-img-top img-fluid mx-auto rotate" style="width: 200px" alt="" data-result="image">
+                    <p class="ocult">No Photo</p>
                     <div class="card-body">
                         <h5 class="card-title">Name: <span data-result="name"></span></h5>
                     </div>
