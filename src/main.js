@@ -11,7 +11,8 @@ async function setInitialSettings () {
     actualOffset = 0;
     actualPage = 1;
     const listOfPokemon = await getListOfPokemon(actualOffset);
-    totalPages = Math.ceil(listOfPokemon.count / POKEMON_LIMIT_PER_PAGE);
+    numberOfPokemon = listOfPokemon.count
+    totalPages = Math.ceil(numberOfPokemon / POKEMON_LIMIT_PER_PAGE);
     setListOfPokemon(listOfPokemon);
     configurePagination(listOfPokemon.previous, listOfPokemon.next)
 }
