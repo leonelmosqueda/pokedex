@@ -95,3 +95,50 @@ function setInitialPagination(pages, prev, next) {
 
 setInitialSettings();
 
+const $pokemonList = document.querySelectorAll('[data-list]')
+
+$pokemonList.forEach(pokemon => pokemon.addEventListener('click', async e => {
+    const pokemon = e.target;
+    deletePokemonHighlighted($pokemonList)
+    highlightPokemon(pokemon)
+    const data = await fetchDataFromPokemon(pokemon.dataset.url);
+    handleData(data);
+}));
+
+function deletePokemonHighlighted (list) {
+    list.forEach(listItem => listItem.classList.remove('active'));
+}
+
+function highlightPokemon (pokemon) {
+    pokemon.classList.add('active');
+}
+
+async function fetchDataFromPokemon(url) {
+    try {
+        const response = await fetch(url);
+        return response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+function handleData (data) {
+    const image = data.sprites.other['official-artwork']['front_default']
+    const height = `${data.height * 10} centimeters`;
+    const weight = `${data.weight / 10} kilograms`;
+    const types = data.types[1] ? `${data.types[0].type.name}, ${data.types[1].type.name}` : `${data.types[0].type.name}`
+    const abilities = data.abilities[2] ? `${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}, ${data.abilities[2].ability.name}`: (data.abilities[1] ? `${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}` : `${data.abilities[0].ability.name}`);
+
+    const $image = document.querySelector('[data-result="image"]');
+    const $height = document.querySelector('[data-result="height"]');
+    const $weight = document.querySelector('[data-result="weight"]');
+    const $type = document.querySelector('[data-result="type"]');
+    const $abilities = document.querySelector('[data-result="abilities"]');
+
+    $image.classList.remove('rotate');
+    $image.src = image;
+    $height.textContent = height;
+    $weight.textContent = weight;
+    $type.textContent = types;
+    $abilities.textContent = abilities;
+}
